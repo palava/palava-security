@@ -13,5 +13,9 @@
   		<groupId>com.google.collections</groupId>
   		<artifactId>google-collections</artifactId>
   	</dependency>
+  	<dependency>
+  		<groupId>de.cosmocode.palava</groupId>
+  		<artifactId>palava-core</artifactId>
+  	</dependency>
   </dependencies>
 </project>

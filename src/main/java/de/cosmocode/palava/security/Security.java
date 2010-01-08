@@ -24,4 +24,16 @@ public final class Security {
         return new DefaultAccessControlList();
     }
     
+    /**
+     * Creates new simple {@link Credentials} for
+     * username/password login.
+     * 
+     * @param username the username
+     * @param password the password
+     * @return new {@link SimpleCredentials} populated with the given username and password
+     */
+    public static SimpleCredentials newCredentials(String username, String password) {
+        return new SimpleCredentials(username, password);
+    }
+    
 }

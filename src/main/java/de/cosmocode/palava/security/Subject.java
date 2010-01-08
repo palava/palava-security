@@ -6,7 +6,6 @@ import com.google.common.collect.ImmutableSet;
  * A {@link Subject} is
  * <strong>a person or automated agent</strong>.
  * 
- * 
  * A Subject is related to a set of {@link Role}s.
  *
  * @author Willi Schoenborn

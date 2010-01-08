@@ -5,6 +5,7 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 
 import de.cosmocode.palava.security.Permission;
+import de.cosmocode.palava.security.PermissionDeniedException;
 import de.cosmocode.palava.security.Role;
 import de.cosmocode.palava.security.Subject;
 
@@ -15,9 +16,6 @@ import de.cosmocode.palava.security.Subject;
  */
 public class DefaultAccessControlList implements AccessControlList {
     
-    private static final String ERROR_FORMAT = "Permission %s not allowed for role %s";
-    private static final String ERROR_FORMAT_SUBJECT = "Permission %s not allowed for subject %s";
-
     private final Multimap<Role, Permission> grants = HashMultimap.create();
     
     @Override
@@ -40,8 +38,10 @@ public class DefaultAccessControlList implements AccessControlList {
         Preconditions.checkNotNull(permission, "Permission");
         if (grants.containsEntry(role, permission)) {
             return;
+        } else if (role.hasParent()) {
+            check(role.getParent(), permission);
         } else {
-            throw new SecurityException(String.format(ERROR_FORMAT, permission, role));
+            throw new PermissionDeniedException(permission);
         }
     }
     
@@ -52,7 +52,7 @@ public class DefaultAccessControlList implements AccessControlList {
         for (Role role : subject.getRoles()) {
             if (grants.containsEntry(role, permission)) return;
         }
-        throw new SecurityException(String.format(ERROR_FORMAT_SUBJECT, permission, subject));
+        throw new PermissionDeniedException(permission);
     }
 
 }

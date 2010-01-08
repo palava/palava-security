@@ -1,6 +1,7 @@
 package de.cosmocode.palava.security.acl;
 
 import de.cosmocode.palava.security.Permission;
+import de.cosmocode.palava.security.PermissionDeniedException;
 import de.cosmocode.palava.security.Role;
 import de.cosmocode.palava.security.Subject;
 
@@ -38,17 +39,17 @@ public interface AccessControlList {
      * 
      * @param role the role
      * @param permission the permission
-     * @throws SecurityException if authorization failed
+     * @throws PermissionDeniedException if permission was denied
      */
-    void check(Role role, Permission permission);
+    void check(Role role, Permission permission) throws PermissionDeniedException;
     
     /**
      * Checks whether the given {@link Subject} has the permission.
      * 
      * @param subject the subject
      * @param permission the permission
-     * @throws SecurityException if authorization failed 
+     * @throws PermissionDeniedException if permission was denied
      */
-    void check(Subject subject, Permission permission);
+    void check(Subject subject, Permission permission) throws PermissionDeniedException;
     
 }
