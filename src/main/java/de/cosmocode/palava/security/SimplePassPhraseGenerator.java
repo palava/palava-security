@@ -21,11 +21,8 @@ package de.cosmocode.palava.security;
 
 import java.util.Random;
 
-import org.jdom.Element;
-
-import com.google.common.base.Preconditions;
-
-import de.cosmocode.palava.core.service.lifecycle.Configurable;
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
 
 /**
  * Simple {@link PassPhraseGenerator} using an algorithm by
@@ -33,7 +30,7 @@ import de.cosmocode.palava.core.service.lifecycle.Configurable;
  *
  * @author Willi Schoenborn
  */
-public final class SimplePassPhraseGenerator implements PassPhraseGenerator, Configurable {
+public final class SimplePassPhraseGenerator implements PassPhraseGenerator {
 
     private static final char[] CHARACTERS = { 
         'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'j', 'k', 'm',
@@ -45,6 +42,8 @@ public final class SimplePassPhraseGenerator implements PassPhraseGenerator, Con
     
     private final Random rand = new Random();
     
+    @Inject
+    @Named("passphrase.length")
     private int length;
 
     @Override
@@ -55,11 +54,6 @@ public final class SimplePassPhraseGenerator implements PassPhraseGenerator, Con
             buf.append(next);
         }
         return buf.toString();
-    }
-
-    @Override
-    public void configure(Element root) {
-        length = Integer.parseInt(Preconditions.checkNotNull(root.getChildText("length"), "Length"));    
     }
 
 }
