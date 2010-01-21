@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<name>Palava Security</name>
+    <name>Palava Security</name>
   <parent>
-  	<artifactId>palava-parent</artifactId>
+      <artifactId>palava-parent</artifactId>
     <groupId>de.cosmocode.palava</groupId>
     <version>1.4-SNAPSHOT</version>
     <relativePath>../palava-parent</relativePath>
@@ -10,13 +10,13 @@
   <groupId>de.cosmocode.palava.security</groupId>
   <artifactId>palava-security</artifactId>
   <dependencies>
-  	<dependency>
-  		<groupId>com.google.collections</groupId>
-  		<artifactId>google-collections</artifactId>
-  	</dependency>
-  	<dependency>
-  		<groupId>de.cosmocode.palava</groupId>
-  		<artifactId>palava-core</artifactId>
-  	</dependency>
+      <dependency>
+          <groupId>com.google.collections</groupId>
+          <artifactId>google-collections</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>de.cosmocode.palava</groupId>
+          <artifactId>palava-core</artifactId>
+      </dependency>
   </dependencies>
 </project>
