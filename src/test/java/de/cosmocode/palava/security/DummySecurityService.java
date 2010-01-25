@@ -24,6 +24,8 @@ import javax.security.auth.login.LoginException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.inject.Singleton;
+
 public class DummySecurityService implements SecurityService {
 
     private static final Logger log = LoggerFactory.getLogger(DummySecurityService.class);
