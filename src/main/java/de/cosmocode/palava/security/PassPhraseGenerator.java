@@ -19,13 +19,15 @@
 
 package de.cosmocode.palava.security;
 
+import de.cosmocode.palava.core.service.Service;
+
 /**
  * A Service which is used to generate passphrases.
  * 
  * @author Detlef Hüttemann
  * @author Willi Schoenborn
  */
-public interface PassPhraseGenerator {
+public interface PassPhraseGenerator extends Service {
 
     /**
      * Generates a new passphrase.
