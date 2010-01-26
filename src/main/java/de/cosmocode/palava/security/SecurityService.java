@@ -21,7 +21,7 @@ package de.cosmocode.palava.security;
 
 import javax.security.auth.login.LoginException;
 
-import de.cosmocode.palava.core.service.Service;
+import de.cosmocode.palava.core.Service;
 
 /**
  * A {@link Service} used to handle authentication and
