@@ -19,7 +19,7 @@
 
 package de.cosmocode.palava.security;
 
-import de.cosmocode.palava.core.Service;
+import de.cosmocode.palava.core.framework.Service;
 
 /**
  * A Service which is used to generate passphrases.
