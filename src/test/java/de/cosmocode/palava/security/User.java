@@ -19,14 +19,14 @@
 
 package de.cosmocode.palava.security;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.google.common.collect.ImmutableSet;
 
-public class User implements Subject {
-
-    private static final Logger log = LoggerFactory.getLogger(User.class);
+/**
+ * Dummy implementation of the {@link Subject} interface.
+ *
+ * @author Willi Schoenborn
+ */
+public final class User implements Subject {
 
     @Override
     public ImmutableSet<Role> getRoles() {

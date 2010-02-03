@@ -21,25 +21,21 @@ package de.cosmocode.palava.security;
 
 import javax.security.auth.login.LoginException;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.google.inject.Singleton;
-
+/**
+ * Dummy implementation of the {@link SecurityService} interface.
+ *
+ * @author Willi Schoenborn
+ */
 public class DummySecurityService implements SecurityService {
-
-    private static final Logger log = LoggerFactory.getLogger(DummySecurityService.class);
 
     @Override
     public void check(Subject subject, Permission permission) throws PermissionDeniedException {
-        // TODO Auto-generated method stub
         
     }
 
     @Override
     public Subject login(Credentials credentials) throws LoginException {
-        // TODO Auto-generated method stub
-        return null;
+        return new User();
     }
 
     
