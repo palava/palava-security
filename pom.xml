@@ -10,7 +10,7 @@
   <groupId>de.cosmocode.palava.security</groupId>
   <artifactId>palava-security</artifactId>
   <scm>
-  	<developerConnection>scm:svn:http://palava.svn.cosmocode.de/palava-security/trunk</developerConnection>
+  	<developerConnection>scm:svn:https://palava.svn.cosmocode.de/palava-security/trunk</developerConnection>
   </scm>
   <dependencies>
       <dependency>
