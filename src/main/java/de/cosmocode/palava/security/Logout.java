@@ -45,19 +45,19 @@ import de.cosmocode.palava.ipc.IpcCommand.Description;
 public final class Logout implements IpcCommand {
 
     private static final Logger LOG = LoggerFactory.getLogger(Logout.class);
-    
+
     private final Provider<Subject> provider;
-    
+
     @Inject
     public Logout(Provider<Subject> provider) {
         this.provider = Preconditions.checkNotNull(provider, "Provider");
     }
-    
+
     @Override
     public void execute(IpcCall call, Map<String, Object> result) throws IpcCommandExecutionException {
         final Subject currentUser = provider.get();
-        LOG.debug("Logging out {}", currentUser);
+        LOG.info("Logging out {}", currentUser);
         currentUser.logout();
     }
-    
+
 }

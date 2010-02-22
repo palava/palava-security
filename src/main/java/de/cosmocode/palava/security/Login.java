@@ -55,8 +55,8 @@ import de.cosmocode.palava.ipc.IpcCommand.Throws;
     @Param(name = Login.USERNAME, description = "The user's username"),
     @Param(name = Login.PASSWORD, description = "The user's secret password"),
     @Param(
-        name = Login.REMEMBER_ME, 
-        description = "A boolean which enables the rememberMe-feature", 
+        name = Login.REMEMBER_ME,
+        description = "A boolean which enables the rememberMe-feature",
         optional = true,
         defaultValue = "false"
     )
@@ -70,15 +70,15 @@ import de.cosmocode.palava.ipc.IpcCommand.Throws;
 })
 @Singleton
 public final class Login implements IpcCommand {
-    
+
     public static final String USERNAME = "username";
     public static final String PASSWORD = "password";
     public static final String REMEMBER_ME = "rememberMe";
 
     private static final Logger LOG = LoggerFactory.getLogger(Login.class);
-    
+
     private final Provider<Subject> provider;
-    
+
     @Inject
     public Login(Provider<Subject> provider) {
         this.provider = Preconditions.checkNotNull(provider, "Provider");
@@ -90,18 +90,18 @@ public final class Login implements IpcCommand {
         final String username = arguments.getString(USERNAME);
         final char[] password = arguments.getString(PASSWORD).toCharArray();
         final boolean rememberMe = arguments.getBoolean(REMEMBER_ME, false);
-        
+
         final Subject currentUser = provider.get();
-        
+
         if (currentUser.isAuthenticated()) {
             throw new IllegalStateException(String.format("%s is already authenticated", currentUser));
         }
 
         final UsernamePasswordToken token = new UsernamePasswordToken(username, password);
         token.setRememberMe(rememberMe);
-        
+
         LOG.debug("Attempt to login {}", currentUser);
-        
+
         try {
             currentUser.login(token);
         } catch (UnknownAccountException e) {
@@ -113,8 +113,8 @@ public final class Login implements IpcCommand {
         } catch (AuthenticationException e) {
             throw new IpcCommandExecutionException(e);
         }
-        
-        LOG.debug("Successfully logged in as {}", currentUser.getPrincipal());
+
+        LOG.info("Successfully logged in as {}", currentUser.getPrincipal());
     }
-    
+
 }

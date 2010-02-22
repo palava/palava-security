@@ -32,18 +32,18 @@ import com.google.inject.name.Named;
  */
 public final class SimplePassPhraseGenerator implements PassPhraseGenerator {
 
-    private static final char[] CHARACTERS = { 
+    private static final char[] CHARACTERS = {
         'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'j', 'k', 'm',
         'n', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'M',
         'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
         '2', '3', '4', '5', '6', '7', '8', '9'
     };
-    
+
     private final Random rand = new Random();
-    
+
     @Inject
-    @Named("passphrase.length")
+    @Named(SecurityConfig.SECURITY_PASSPHRASE_LENGTH)
     private int length;
 
     @Override
