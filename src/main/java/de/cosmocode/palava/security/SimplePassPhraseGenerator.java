@@ -28,6 +28,7 @@ import com.google.inject.name.Named;
  * Simple {@link PassPhraseGenerator} using an algorithm by
  * Ian F. Darwin, http://www.darwinsys.com/.
  *
+ * @author Detlef Huettemann
  * @author Willi Schoenborn
  */
 public final class SimplePassPhraseGenerator implements PassPhraseGenerator {
@@ -40,20 +41,22 @@ public final class SimplePassPhraseGenerator implements PassPhraseGenerator {
         '2', '3', '4', '5', '6', '7', '8', '9'
     };
 
-    private final Random rand = new Random();
+    private final Random random = new Random();
+
+    private final int length;
 
     @Inject
-    @Named(SecurityConfig.SECURITY_PASSPHRASE_LENGTH)
-    private int length;
-
+    public SimplePassPhraseGenerator(@Named(SecurityConfig.PASSPHRASE_LENGTH) int length) {
+        this.length = length;
+    }
+    
     @Override
     public String generatePassPhrase() {
-        final StringBuilder buf = new StringBuilder();
+        final StringBuilder builder = new StringBuilder();
         for (int i = 0; i < length; i++) {
-            final char next = CHARACTERS[rand.nextInt(CHARACTERS.length)];
-            buf.append(next);
+            builder.append(CHARACTERS[random.nextInt(CHARACTERS.length)]);
         }
-        return buf.toString();
+        return builder.toString();
     }
 
 }
