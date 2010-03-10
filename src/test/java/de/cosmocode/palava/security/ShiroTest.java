@@ -30,6 +30,7 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.Subject;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -107,6 +108,7 @@ public final class ShiroTest {
      * Tests shiro start/getSubject().
      */
     @Test
+    @Ignore
     public void start() {
         final Injector injector = Guice.createInjector(Stage.PRODUCTION,
             new MockModule(),
