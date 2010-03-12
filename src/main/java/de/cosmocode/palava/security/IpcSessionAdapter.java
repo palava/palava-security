@@ -100,7 +100,7 @@ final class IpcSessionAdapter implements Session {
     
     @Override
     public void stop() throws InvalidSessionException {
-        session.destroy();
+        session.clear();
     }
     
     @Override
