@@ -20,7 +20,6 @@
 package de.cosmocode.palava.security;
 
 import org.apache.shiro.mgt.SecurityManager;
-import org.apache.shiro.session.mgt.SessionManager;
 import org.apache.shiro.subject.Subject;
 
 import com.google.inject.Binder;
@@ -40,7 +39,6 @@ public final class SecurityModule implements Module {
     @Override
     public void configure(Binder binder) {
         binder.bind(SecurityManager.class).toProvider(SecurityManagerProvider.class).in(Singleton.class);
-        binder.bind(SessionManager.class).to(IpcSessionProviderAdapter.class).in(Singleton.class);
     }
  
     /**

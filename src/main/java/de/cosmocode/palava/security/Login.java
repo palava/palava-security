@@ -93,9 +93,7 @@ public final class Login implements IpcCommand {
 
         final Subject currentUser = provider.get();
 
-        if (currentUser.isAuthenticated()) {
-            throw new IllegalStateException(String.format("%s is already authenticated", currentUser));
-        }
+        Preconditions.checkState(!currentUser.isAuthenticated(), "%s is already authenticated", currentUser);
 
         final UsernamePasswordToken token = new UsernamePasswordToken(username, password);
         token.setRememberMe(rememberMe);
