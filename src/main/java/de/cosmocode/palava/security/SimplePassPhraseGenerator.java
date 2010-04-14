@@ -31,8 +31,9 @@ import com.google.inject.name.Named;
  * @author Detlef Huettemann
  * @author Willi Schoenborn
  */
-public final class SimplePassPhraseGenerator implements PassPhraseGenerator {
+final class SimplePassPhraseGenerator implements PassPhraseGenerator {
 
+    // misreadable chars like il1o0 are left out
     private static final char[] CHARACTERS = {
         'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'j', 'k', 'm',
         'n', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
@@ -46,7 +47,7 @@ public final class SimplePassPhraseGenerator implements PassPhraseGenerator {
     private final int length;
 
     @Inject
-    public SimplePassPhraseGenerator(@Named(SecurityConfig.PASSPHRASE_LENGTH) int length) {
+    public SimplePassPhraseGenerator(@Named(PassPhraseGeneratorConfig.LENGTH) int length) {
         this.length = length;
     }
     

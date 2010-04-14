@@ -14,21 +14,24 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA  02110-1301, USA.
  */
 
 package de.cosmocode.palava.security;
 
 /**
- * Static constant holder class for config key names.
- * 
- * @author Tobias Sarnowski
+ * Static constant holder class for passphrase generator config key names.
+ *
+ * @author Willi Schoenborn
  */
-public final class SecurityConfig {
+public final class PassPhraseGeneratorConfig {
 
-    public static final String PREFIX = "security.";
-
-    private SecurityConfig() {
+    public static final String PREFIX = SecurityConfig.PREFIX + "passphrase.";
+    
+    public static final String LENGTH = PREFIX + "length";
+    
+    private PassPhraseGeneratorConfig() {
         
     }
 
