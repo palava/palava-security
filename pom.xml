@@ -12,6 +12,7 @@
   <scm>
     <developerConnection>scm:svn:https://palava.svn.cosmocode.de/palava-security/trunk</developerConnection>
   </scm>
+  <!--
   <repositories>
     <repository>
       <id>apache-incubator</id>
@@ -19,6 +20,7 @@
       <url>https://repository.apache.org/content/repositories/snapshots/</url>
     </repository>
   </repositories>
+  -->
   <dependencies>
       <dependency>
           <groupId>com.google.collections</groupId>
@@ -37,7 +39,7 @@
       <dependency>
         <groupId>org.apache.shiro</groupId>
         <artifactId>shiro-core</artifactId>
-        <version>1.0-incubating-SNAPSHOT</version>
+	<version>1.1.0-incubating-cosmocode20100526</version>
       </dependency>
       <dependency>
         <groupId>com.google.inject.extensions</groupId>
